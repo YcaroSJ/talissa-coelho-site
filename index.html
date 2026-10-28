@@ -96,6 +96,18 @@ nav .brand img{display:block;height:26px;width:auto}
 .steps p{font-weight:300;opacity:.65;max-width:26em}
 footer img{height:24px;display:block}
 @media (max-width:760px){.about,.steps{grid-template-columns:1fr}.projs>*{grid-column:1/-1!important;margin-top:0!important}}
+@media (max-width:760px){
+  .stage{width:100vw;height:min(88svh,150vw);aspect-ratio:auto}
+  .bg,.cut{object-fit:cover;object-position:53% 50%}
+  .say{padding:0 0 7cqh 8cqw;font-size:3.1cqw;letter-spacing:.28em}
+  .say::before{width:8cqw;margin-bottom:1.3cqw}
+  nav{padding:16px 16px;gap:12px;font-size:10px;letter-spacing:.16em}
+  nav ul{gap:12px}
+  nav .brand img{height:15px}
+  footer img{height:16px}
+  section{padding-block:72px}
+  .wm{width:94vw}
+}
 @media (prefers-reduced-motion:reduce){#intro{display:none}}
 </style>
 </head>
@@ -118,7 +130,7 @@ footer img{height:24px;display:block}
   <div class="stage" id="stage">
     <div class="rig" id="rig">
       <img class="bg" src="talissa-bg.jpg" alt="Talissa Coelho, arquiteta" fetchpriority="high">
-      <svg class="lines" viewBox="0 0 1600 900" aria-hidden="true">
+      <svg class="lines" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <!-- perspective rays converging behind her -->
         <path pathLength="1" d="M0 900 L800 380" style="animation-delay:0s"/>
         <path pathLength="1" d="M1600 60 L800 380" style="animation-delay:-6s"/>
