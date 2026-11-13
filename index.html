@@ -83,18 +83,31 @@ nav .brand img{display:block;height:26px;width:auto}
 .proj{display:block}
 .proj .ph{overflow:hidden;background:#1a1a1a;aspect-ratio:var(--r,4/3)}
 .proj img{transition:transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s}
-.proj:hover img{transform:scale(1.05);filter:grayscale(1) contrast(1.1) brightness(1.1)}
+.proj:hover img{transform:scale(1.05);filter:none}
+@media (hover:none){.proj img{filter:none}}
 .proj figcaption{display:flex;justify-content:space-between;gap:16px;padding-top:14px;align-items:baseline}
 .proj h3{font:400 clamp(22px,2.4vw,36px)/1.1 var(--serif);letter-spacing:-.02em}
 .proj small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;white-space:nowrap}
 .p1{grid-column:1/8}.p2{grid-column:8/13;--r:3/4;margin-top:8vw}.p3{grid-column:1/6;--r:3/4}.p4{grid-column:6/13;margin-top:10vw}.p5{grid-column:1/8}.p6{grid-column:8/13;--r:3/4;margin-top:6vw}
-.note{margin-top:3rem;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.4}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,64px)}
 .steps>div{border-top:1px solid #ffffff33;padding-top:20px}
 .steps b{font:400 clamp(40px,5vw,72px)/1 var(--serif);display:block;margin-bottom:.6em}
 .steps h4{font:400 18px var(--sans);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.6em}
 .steps p{font-weight:300;opacity:.65;max-width:26em}
 footer img{height:24px;display:block}
+
+/* GALERIA */
+#lb{position:fixed;inset:0;z-index:95;background:#0c0c0cf2;display:grid;grid-template-rows:minmax(0,1fr) auto;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+#lb.open{opacity:1;visibility:visible}
+#lb .stage2{position:relative;display:grid;place-items:center;padding:64px 72px 8px;min-height:0}
+#lb img{max-width:100%;max-height:calc(100svh - 130px);object-fit:contain;display:block;transition:opacity .3s}
+#lb .bar{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px clamp(16px,3vw,40px) 22px}
+#lb h3{font:400 clamp(20px,2.2vw,30px)/1 var(--serif)}
+#lb small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+#lb button{position:absolute;text-shadow:0 0 8px #000;background:none;border:0;color:#fff;cursor:pointer;font:300 28px/1 var(--sans);opacity:.7;padding:16px;transition:opacity .2s}
+#lb button:hover{opacity:1}
+#lb .x{top:10px;right:14px;font-size:22px}#lb .pv{left:6px;top:50%;translate:0 -50%}#lb .nx{right:6px;top:50%;translate:0 -50%}
+@media (max-width:760px){#lb .stage2{padding:60px 8px 8px}#lb .pv,#lb .nx{top:auto;bottom:10px;translate:none}#lb .pv{left:auto;right:64px}}
 @media (max-width:760px){.about,.steps{grid-template-columns:1fr}.projs>*{grid-column:1/-1!important;margin-top:0!important}}
 @media (max-width:760px){
   .stage{width:100vw;height:min(88svh,150vw);aspect-ratio:auto}
@@ -166,14 +179,13 @@ footer img{height:24px;display:block}
 <section id="projetos">
   <div class="lab rv">Projetos</div>
   <div class="projs">
-    <a class="proj p1 rv" href="#contato"><div class="ph"><img src="img/casa-jardim.jpg" alt="" loading="lazy"></div><figcaption><h3>Casa do Jardim</h3><small>Residencial · 2025</small></figcaption></a>
-    <a class="proj p2 rv" href="#contato"><div class="ph"><img src="img/interior-sala.jpg" alt="" loading="lazy"></div><figcaption><h3>Sala Contínua</h3><small>Interiores · 2025</small></figcaption></a>
-    <a class="proj p3 rv" href="#contato"><div class="ph"><img src="img/casa-piscina.jpg" alt="" loading="lazy"></div><figcaption><h3>Residência Horizonte</h3><small>Residencial · 2024</small></figcaption></a>
-    <a class="proj p4 rv" href="#contato"><div class="ph"><img src="img/casa-madeira.jpg" alt="" loading="lazy"></div><figcaption><h3>Casa Ripado</h3><small>Residencial · 2024</small></figcaption></a>
-    <a class="proj p5 rv" href="#contato"><div class="ph"><img src="img/pavilhao.jpg" alt="" loading="lazy"></div><figcaption><h3>Pavilhão Prisma</h3><small>Cultural · 2023</small></figcaption></a>
-    <a class="proj p6 rv" href="#contato"><div class="ph"><img src="img/torres.jpg" alt="" loading="lazy"></div><figcaption><h3>Torre Vértice</h3><small>Comercial · 2023</small></figcaption></a>
+    <a class="proj p1 rv" href="#" data-slug="residencia-clecia" data-n="12" data-title="Apartamento Compacto" data-cat="Residencial"><div class="ph"><img src="projetos/residencia-clecia/04.jpg" alt="Apartamento Compacto" loading="lazy"></div><figcaption><h3>Apartamento Compacto</h3><small>Residencial · 12 imagens</small></figcaption></a>
+    <a class="proj p2 rv" href="#" data-slug="escritorio-muxarabi" data-n="9" data-title="Escritório Muxarabi" data-cat="Comercial"><div class="ph"><img src="projetos/escritorio-muxarabi/02.jpg" alt="Escritório Muxarabi" loading="lazy"></div><figcaption><h3>Escritório Muxarabi</h3><small>Comercial · 9 imagens</small></figcaption></a>
+    <a class="proj p3 rv" href="#" data-slug="sala-ap" data-n="12" data-title="Sala AP" data-cat="Interiores"><div class="ph"><img src="projetos/sala-ap/02.jpg" alt="Sala AP" loading="lazy"></div><figcaption><h3>Sala AP</h3><small>Interiores · 12 imagens</small></figcaption></a>
+    <a class="proj p4 rv" href="#" data-slug="apto-aleatorio" data-n="7" data-title="Apartamento Integrado" data-cat="Residencial"><div class="ph"><img src="projetos/apto-aleatorio/06.jpg" alt="Apartamento Integrado" loading="lazy"></div><figcaption><h3>Apartamento Integrado</h3><small>Residencial · 7 imagens</small></figcaption></a>
+    <a class="proj p5 rv" href="#" data-slug="fachada" data-n="3" data-title="Fachada Comercial" data-cat="Retrofit"><div class="ph"><img src="projetos/fachada/03.jpg" alt="Fachada Comercial" loading="lazy"></div><figcaption><h3>Fachada Comercial</h3><small>Retrofit · 3 imagens</small></figcaption></a>
+    <a class="proj p6 rv" href="#" data-slug="banheiro-granilite" data-n="1" data-title="Banheiro Granilite" data-cat="Interiores"><div class="ph"><img src="projetos/banheiro-granilite/01.jpg" alt="Banheiro Granilite" loading="lazy"></div><figcaption><h3>Banheiro Granilite</h3><small>Interiores · 1 imagem</small></figcaption></a>
   </div>
-  <p class="note">Projetos e imagens ilustrativos (Unsplash). Portfólio real em breve.</p>
 </section>
 
 <section id="processo">
@@ -191,9 +203,32 @@ footer img{height:24px;display:block}
   <div class="links rv"><a href="#">Instagram</a><a href="#">E-mail</a><a href="#">WhatsApp</a></div>
 </section>
 
+<div id="lb" role="dialog" aria-modal="true" aria-label="Galeria do projeto">
+  <div class="stage2"><button class="x" aria-label="Fechar">✕</button><button class="pv" aria-label="Anterior">‹</button><img alt=""><button class="nx" aria-label="Próxima">›</button></div>
+  <div class="bar"><h3></h3><small></small></div>
+</div>
+
 <footer><img src="logo/talissa-coelho-transparente-claro.svg" alt="Talissa Coelho"><span>© 2026</span></footer>
 
 <script>
+// project gallery
+(()=>{
+  const lb=document.getElementById('lb'),img=lb.querySelector('img'),h3=lb.querySelector('h3'),sm=lb.querySelector('small');
+  let slug,n,t,i=0;
+  const src=k=>`projetos/${slug}/${String(k).padStart(2,'0')}.jpg`;
+  const show=k=>{i=(k-1+n)%n+1;img.style.opacity=0;const im=new Image();im.onload=()=>{img.src=im.src;img.style.opacity=1};im.src=src(i);sm.textContent=`${i} / ${n}`;
+    if(n>1){new Image().src=src(i%n+1)}};
+  const close=()=>{lb.classList.remove('open');document.documentElement.classList.remove('lock')};
+  document.querySelectorAll('.proj').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();({slug,title:t}=a.dataset);n=+a.dataset.n;h3.textContent=t;
+    lb.querySelectorAll('.pv,.nx').forEach(b=>b.style.display=n>1?'':'none');
+    lb.classList.add('open');document.documentElement.classList.add('lock');show(1)}));
+  lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=()=>show(i-1);lb.querySelector('.nx').onclick=()=>show(i+1);
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('stage2'))close()});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+  let x0;lb.addEventListener('pointerdown',e=>x0=e.clientX);
+  lb.addEventListener('pointerup',e=>{if(x0!=null&&Math.abs(e.clientX-x0)>50&&n>1)show(i+(e.clientX<x0?1:-1));x0=null});
+})();
 // opening: symbol alone, then the name slides out from behind it
 (()=>{
   const el=document.getElementById('intro');
