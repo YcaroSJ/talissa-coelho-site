@@ -43,11 +43,6 @@ section{padding:clamp(80px,14vw,200px) clamp(16px,3vw,40px)}
 .lab{text-transform:uppercase;letter-spacing:.14em;font-size:11px;opacity:.55;margin-bottom:2.5rem}
 
 
-.contato h2{font:400 clamp(52px,13vw,230px)/.9 var(--serif);letter-spacing:-.03em}
-.contato h2 em{opacity:.5}
-.links{display:flex;flex-wrap:wrap;gap:12px 36px;margin-top:3rem;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-.links a{border-bottom:1px solid #fff6;padding-bottom:3px;transition:border-color .2s}.links a:hover{border-color:#fff}
-footer{display:flex;justify-content:space-between;padding:24px clamp(16px,3vw,40px);border-top:1px solid #ffffff1f;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}
 
 .rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.8,.2,1)}
 .rv.on{opacity:1;transform:none}
@@ -90,12 +85,6 @@ nav .brand img{display:block;height:26px;width:auto}
 .proj h3{font:400 clamp(22px,2.4vw,36px)/1.1 var(--serif);letter-spacing:-.02em}
 .proj small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;white-space:nowrap}
 .p1{grid-column:1/8}.p2{grid-column:8/13;--r:3/4;margin-top:8vw}.p3{grid-column:1/6;--r:3/4}.p4{grid-column:6/13;margin-top:10vw}.p5{grid-column:1/8}.p6{grid-column:8/13;--r:3/4;margin-top:6vw}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,64px)}
-.steps>div{border-top:1px solid #ffffff33;padding-top:20px}
-.steps b{font:400 clamp(40px,5vw,72px)/1 var(--serif);display:block;margin-bottom:.6em}
-.steps h4{font:400 18px var(--sans);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.6em}
-.steps p{font-weight:300;opacity:.65;max-width:26em}
-footer img{height:24px;display:block}
 
 /* GALERIA */
 #lb{position:fixed;inset:0;z-index:95;background:#0c0c0cf2;display:grid;grid-template-rows:minmax(0,1fr) auto;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
@@ -110,6 +99,58 @@ footer img{height:24px;display:block}
 #lb .x{top:10px;right:14px;font-size:22px}#lb .pv{left:6px;top:50%;translate:0 -50%}#lb .nx{right:6px;top:50%;translate:0 -50%}
 @media (max-width:760px){#lb .stage2{padding:60px 8px 8px}#lb .pv,#lb .nx{top:auto;bottom:10px;translate:none}#lb .pv{left:auto;right:64px}}
 
+
+/* PROCESSO */
+.ptitle{font:400 clamp(44px,8vw,140px)/.92 var(--serif);letter-spacing:-.035em;margin-bottom:clamp(40px,6vw,90px)}
+.ptitle em{font-style:italic;opacity:.5}
+.pline{position:relative;height:1px;background:#ffffff26;margin-bottom:-1px}.pline i{position:absolute;left:0;top:0;height:1px;width:100%;background:#fff;transform-origin:left;transform:scaleX(var(--p,0))}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);perspective:1100px}
+.step{position:relative;overflow:hidden;padding:clamp(22px,2.4vw,36px);min-height:clamp(380px,34vw,520px);display:flex;flex-direction:column;justify-content:flex-end;border:1px solid #ffffff22;background:radial-gradient(120% 90% at 30% 0%,#ffffff10,transparent 60%),#141414;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s,background-color .4s;will-change:transform}
+.step:hover{border-color:#ffffff88}
+.step .num{position:absolute;right:-.04em;top:-.12em;font:400 clamp(150px,19vw,300px)/1 var(--serif);color:transparent;-webkit-text-stroke:1px #ffffff2e;pointer-events:none;transform:translateZ(30px);transition:-webkit-text-stroke-color .5s}
+.step:hover .num{-webkit-text-stroke-color:#ffffff88}
+.step svg{position:absolute;left:8%;top:8%;width:84%;height:50%;transform:translateZ(50px);overflow:visible}
+.step svg *{fill:none;stroke:#fff;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s cubic-bezier(.3,.7,.2,1)}
+.step svg .f{stroke-opacity:.4}
+.step.on svg *{stroke-dashoffset:0}
+.step.on svg *:nth-child(2){transition-delay:.25s}.step.on svg *:nth-child(3){transition-delay:.5s}.step.on svg *:nth-child(4){transition-delay:.75s}.step.on svg *:nth-child(5){transition-delay:1s}.step.on svg *:nth-child(n+6){transition-delay:1.25s}
+.step h4{font:400 clamp(26px,3vw,44px)/1 var(--serif);letter-spacing:-.02em;margin-bottom:.5em;transform:translateZ(40px)}
+.step p{font-weight:300;opacity:.7;max-width:24em;transform:translateZ(25px)}
+.step small{display:block;margin-bottom:1.2em;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.5}
+@media (max-width:760px){.step{min-height:380px}}
+
+/* CONTATO */
+.contato .wrap{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,5vw,90px);align-items:stretch}
+.contato h2{font:400 clamp(44px,7.4vw,128px)/.92 var(--serif);letter-spacing:-.035em;margin-bottom:.35em}
+.contato h2 em{font-style:italic;opacity:.5}
+.contato .sub{max-width:30em;font-size:17px;font-weight:300;opacity:.72;margin-bottom:clamp(32px,5vw,64px)}
+.crow{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:clamp(18px,2.4vw,32px) 4px;border-top:1px solid #ffffff33;font:400 clamp(26px,3.6vw,56px)/1 var(--serif);letter-spacing:-.02em;overflow:hidden;transition:color .45s,padding .45s}
+.crow:last-of-type{border-bottom:1px solid #ffffff33}
+.crow::before{content:'';position:absolute;inset:0;background:#f2f2f2;transform:scaleY(0);transform-origin:bottom;transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:0}
+.crow>*{position:relative;z-index:1}
+.crow small{font:300 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;opacity:.55;margin-left:auto;margin-right:12px}
+.crow i{font-style:normal;transition:transform .45s}
+.crow:hover{color:#111;padding-inline:clamp(14px,2vw,28px)}.crow:hover::before{transform:scaleY(1)}.crow:hover i{transform:translate(6px,-6px)}
+.cfig{position:relative;min-height:420px;overflow:hidden;background:#1a1a1a;perspective:900px}
+.cfig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 30%}
+.cfig svg{position:absolute;left:6%;top:8%;width:46%;opacity:.5;z-index:2}
+.cfig svg path{fill:none;stroke:#fff;stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.4s ease}
+.cfig.on svg path{stroke-dashoffset:0}
+.cfig::after{content:'';position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(transparent,#111);z-index:3}
+@media (max-width:760px){.contato .wrap{grid-template-columns:1fr}.cfig{min-height:360px;order:-1}}
+
+/* RODAPÉ */
+.foot{border-top:1px solid #ffffff22;padding:clamp(56px,8vw,120px) clamp(16px,3vw,40px) 28px;background:linear-gradient(#111,#0b0b0b)}
+.ftop{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(28px,4vw,64px)}
+.fbrand img{height:clamp(26px,3vw,40px);width:auto;display:block;margin-bottom:22px}
+.fbrand p{font:italic 400 clamp(22px,2.4vw,34px)/1.1 var(--serif);max-width:12em;opacity:.8}
+.foot h5{font:400 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;opacity:.5;margin-bottom:18px}
+.foot ul{list-style:none;padding:0;display:grid;gap:10px}
+.foot li a{font-weight:300;font-size:15px;opacity:.85;position:relative;transition:opacity .2s}
+.foot li a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 28px;margin-top:clamp(48px,7vw,96px);padding-top:22px;border-top:1px solid #ffffff1a;font-size:12px;letter-spacing:.06em;font-weight:300;opacity:.6}
+.fbot a{border-bottom:1px solid #fff6}.fbot a:hover{opacity:1;border-color:#fff}
+@media (max-width:760px){.ftop{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
 /* GALERIA 3D */
 .gal{display:none;height:620vh;position:relative}
 .gl .gal{display:block}.gl .projs{display:none}
@@ -125,7 +166,7 @@ footer img{height:24px;display:block}
 .hud button:hover{border-color:#fff}
 .hint{position:absolute;right:clamp(16px,3vw,40px);bottom:clamp(28px,6vh,64px);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;transition:opacity .4s}
 .gprog{position:absolute;right:0;top:0;width:2px;height:100%;background:#ffffff14}.gprog i{display:block;width:100%;background:#fff;height:0}
-@media (max-width:760px){.about,.steps{grid-template-columns:1fr}.projs>*{grid-column:1/-1!important;margin-top:0!important}}
+@media (max-width:760px){.about,.steps{grid-template-columns:1fr}.pline{display:none}.projs>*{grid-column:1/-1!important;margin-top:0!important}}
 @media (max-width:760px){
   .stage{width:100vw;height:min(88svh,150vw);aspect-ratio:auto}
   .bg,.cut{object-fit:cover;object-position:53% 50%}
@@ -134,8 +175,7 @@ footer img{height:24px;display:block}
   nav{padding:16px 16px;gap:12px;font-size:10px;letter-spacing:.16em}
   nav ul{gap:12px}
   nav .brand img{height:15px}
-  footer img{height:16px}
-  section{padding-block:72px}
+    section{padding-block:72px}
   .wm{width:52vw}
 }
 @media (prefers-reduced-motion:reduce){#intro{display:none}}
@@ -213,17 +253,36 @@ footer img{height:24px;display:block}
 
 <section id="processo">
   <div class="lab rv">Processo</div>
+  <h2 class="ptitle rv">Do traço <em>à obra</em></h2>
+  <div class="pline"><i id="pl"></i></div>
   <div class="steps">
-    <div class="rv"><b>01</b><h4>Escuta</h4><p>Entender o terreno, a rotina e o desejo de quem vai viver o espaço.</p></div>
-    <div class="rv"><b>02</b><h4>Projeto</h4><p>Do primeiro traço ao executivo: forma, luz, materiais e detalhes.</p></div>
-    <div class="rv"><b>03</b><h4>Obra</h4><p>Acompanhamento próximo para que o desenhado vire construído.</p></div>
+    <div class="step rv"><span class="num">1</span>
+      <svg viewBox="0 0 200 110" aria-hidden="true"><path pathLength="1" d="M0 96Q45 56 100 80T200 62"/><path pathLength="1" d="M0 108Q55 72 110 96T200 80"/><path pathLength="1" d="M0 84Q40 46 96 66T200 44" class="f"/><circle pathLength="1" cx="150" cy="22" r="13"/><path pathLength="1" d="M150 0V4M171 22h4M129 22h-4M165 7l3-3M135 7l-3-3"/></svg>
+      <small>01 · Etapa</small><h4>Escuta</h4><p>Entender o terreno, a rotina e o desejo de quem vai viver o espaço.</p></div>
+    <div class="step rv"><span class="num">2</span>
+      <svg viewBox="0 0 200 110" aria-hidden="true"><path pathLength="1" d="M100 4L150 30V80L100 106L50 80V30Z"/><path pathLength="1" d="M100 55V106M100 55L50 30M100 55L150 30"/><path pathLength="1" d="M18 108H182M18 102v12M182 102v12" class="f"/><path pathLength="1" d="M165 30V80M160 30h10M160 80h10" class="f"/></svg>
+      <small>02 · Etapa</small><h4>Projeto</h4><p>Do primeiro traço ao executivo: forma, luz, materiais e detalhes.</p></div>
+    <div class="step rv"><span class="num">3</span>
+      <svg viewBox="0 0 200 110" aria-hidden="true"><path pathLength="1" d="M0 104H200"/><path pathLength="1" d="M30 104V50M80 104V28M130 104V42M176 104V16"/><path pathLength="1" d="M18 50H92M68 28H142M118 42H188M164 16H200"/><path pathLength="1" d="M30 50L80 28M80 28L130 42M130 42L176 16" class="f"/></svg>
+      <small>03 · Etapa</small><h4>Obra</h4><p>Acompanhamento próximo para que o desenhado vire construído.</p></div>
   </div>
 </section>
 
 <section class="contato" id="contato">
   <div class="lab rv">Contato</div>
-  <h2 class="rv">Vamos<br><em>desenhar?</em></h2>
-  <div class="links rv"><a href="#">Instagram</a><a href="#">E-mail</a><a href="#">WhatsApp</a></div>
+  <div class="wrap">
+    <div>
+      <h2 class="rv">Tem um espaço <em>em mente?</em></h2>
+      <p class="sub rv">Conte sua ideia. O primeiro traço nasce de uma conversa, sem compromisso.</p>
+      <div class="rv">
+        <a class="crow" href="#"><span>WhatsApp</span><small>Resposta rápida</small><i>↗</i></a>
+        <a class="crow" href="#"><span>Instagram</span><small>Acompanhe</small><i>↗</i></a>
+        <a class="crow" href="#"><span>E-mail</span><small>Projetos</small><i>↗</i></a>
+      </div>
+    </div>
+    <div class="cfig rv"><img src="talissa-bg.jpg" alt=""><img src="talissa-cutout.png" alt="Talissa Coelho" loading="lazy">
+      <svg viewBox="0 0 200 110" aria-hidden="true"><path pathLength="1" d="M100 4L150 30V80L100 106L50 80V30Z"/><path pathLength="1" d="M100 55V106M100 55L50 30M100 55L150 30"/></svg></div>
+  </div>
 </section>
 
 <div id="lb" role="dialog" aria-modal="true" aria-label="Galeria do projeto">
@@ -231,9 +290,27 @@ footer img{height:24px;display:block}
   <div class="bar"><h3></h3><small></small></div>
 </div>
 
-<footer><img src="logo/talissa-coelho-transparente-claro.svg" alt="Talissa Coelho"><span>© 2026</span></footer>
+<footer class="foot">
+  <div class="ftop">
+    <div class="fbrand"><img src="logo/talissa-coelho-transparente-claro.svg" alt="Talissa Coelho"><p>Arquitetura que se vive.</p></div>
+    <div><h5>Navegação</h5><ul><li><a href="#projetos">Projetos</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#processo">Processo</a></li><li><a href="#contato">Contato</a></li></ul></div>
+    <div><h5>Contato</h5><ul><li><a href="#">WhatsApp</a></li><li><a href="#">Instagram</a></li><li><a href="#">E-mail</a></li></ul></div>
+    <div><h5>Legal</h5><ul><li><a href="privacidade.html">Política de Privacidade</a></li><li><a href="termos.html">Termos de Uso</a></li></ul></div>
+  </div>
+  <div class="fbot"><span>© 2026 Talissa Coelho. Todos os direitos reservados.</span><span>Feito por <a href="#" rel="noopener">Ycaro</a></span></div>
+</footer>
 
 <script>
+// process: 3D tilt on hover + line that fills while scrolling
+(()=>{
+  document.querySelectorAll('.step').forEach(el=>{
+    el.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`rotateY(${x*9}deg) rotateX(${-y*9}deg) translateZ(10px)`});
+    el.addEventListener('pointerleave',()=>el.style.transform='');
+  });
+  const sec=document.getElementById('processo'),pl=document.getElementById('pl');
+  const f=()=>{const r=sec.getBoundingClientRect();pl.parentNode.style.setProperty('--p',Math.min(1,Math.max(0,(innerHeight*.8-r.top)/(r.height*.7))));pl.style.setProperty('--p',pl.parentNode.style.getPropertyValue('--p'))};
+  addEventListener('scroll',f,{passive:true});f();
+})();
 // project gallery
 (()=>{
   const lb=document.getElementById('lb'),img=lb.querySelector('img'),h3=lb.querySelector('h3'),sm=lb.querySelector('small');
@@ -341,7 +418,9 @@ try{
   const sm=(a,b,x)=>{x=Math.min(1,Math.max(0,(x-a)/(b-a)));return x*x*(3-2*x)};
   document.getElementById('go').onclick=()=>cards[cur<0?0:cur].click();
 
+  let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(gal);
   function frame(t){
+    if(!vis){requestAnimationFrame(frame);return}
     const top=gal.getBoundingClientRect().top,total=gal.offsetHeight-innerHeight;
     p=Math.min(1,Math.max(0,-top/total));pv+=(p-pv)*.08;
     const z=2.5-pv*(N-1)*D;
