@@ -62,7 +62,7 @@ section{padding:clamp(72px,11vw,170px) var(--pad)}
 @media (max-width:760px){.intro{grid-template-columns:1fr}}
 
 /* ANTES / DEPOIS */
-.ba{position:relative;width:min(100%,620px);aspect-ratio:4/5;margin:0 auto;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:pan-y;background:#000}
+.ba{position:relative;width:min(100%,var(--bw,620px));aspect-ratio:var(--ba,4/5);margin:0 auto;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:pan-y;background:#000}
 .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .ba .after{clip-path:inset(0 0 0 var(--x,50%))}
 .ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;transform:translateX(-1px)}
@@ -84,6 +84,53 @@ section{padding:clamp(72px,11vw,170px) var(--pad)}
 .f i{position:absolute;right:14px;bottom:12px;font:300 11px var(--sans);letter-spacing:.2em;font-style:normal;text-transform:uppercase;opacity:0;transition:opacity .3s;text-shadow:0 0 8px #000}
 .f:hover i{opacity:.9}
 @media (max-width:760px){.row.pair{grid-template-columns:1fr}.row.pair .f:nth-child(2){margin-top:0}.row.single{grid-template-columns:1fr}}
+
+
+/* TEXTO / PALETA / MATERIAIS */
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,56px);margin-top:clamp(48px,7vw,110px)}
+.blocks>div{border-top:1px solid #ffffff33;padding-top:20px}
+.blocks b{display:block;font:400 clamp(40px,4.6vw,72px)/1 var(--serif);opacity:.35;margin-bottom:.35em}
+.blocks h3{font:400 13px var(--sans);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.8em}
+.blocks p{font-weight:300;opacity:.75;font-size:16px;max-width:30em}
+.pal{display:flex;gap:0;margin-top:clamp(40px,6vw,90px);height:clamp(70px,9vw,130px)}
+.pal i{flex:1;position:relative;transition:flex .6s cubic-bezier(.2,.8,.2,1)}
+.pal i:hover{flex:2.4}
+.pal i span{position:absolute;left:10px;bottom:8px;font:400 10px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;opacity:.9}
+.mats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.mats span{border:1px solid #ffffff33;border-radius:99px;padding:8px 16px;font-size:13px;font-weight:300;letter-spacing:.04em;transition:background .3s,color .3s,border-color .3s}
+.mats span:hover{background:#f2f2f2;color:#111;border-color:#f2f2f2}
+.sublab{font:400 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;opacity:.5;margin-top:clamp(40px,6vw,80px)}
+@media (max-width:760px){.blocks{grid-template-columns:1fr}}
+
+/* VÍDEOS */
+.vids{display:flex;gap:clamp(12px,1.6vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 18px;margin:0 calc(var(--pad)*-1);-webkit-overflow-scrolling:touch}
+.vids::-webkit-scrollbar{height:4px}
+.vids video{flex:0 0 clamp(200px,22vw,320px);aspect-ratio:9/16;object-fit:cover;background:#1a1a1a;scroll-snap-align:start;display:block}
+.vids video:first-child{margin-left:var(--pad)}.vids video:last-child{margin-right:var(--pad)}
+
+/* DETALHES */
+.dets{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px)}
+.det{position:relative;aspect-ratio:3/4;overflow:hidden;background:#1a1a1a;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.det img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.det:hover img{transform:scale(1.07)}
+.det::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 35%,#000d)}
+.det div{position:absolute;z-index:2;left:22px;right:22px;bottom:22px}
+.det b{font:400 clamp(44px,5vw,80px)/1 var(--serif);opacity:.5;display:block}
+.det h4{font:400 clamp(22px,2.2vw,32px)/1.1 var(--serif);margin:.2em 0 .5em}
+.det p{font-weight:300;font-size:14px;opacity:.8}
+.dtitle{font:400 clamp(32px,5vw,84px)/.95 var(--serif);letter-spacing:-.03em;margin-bottom:clamp(28px,4vw,56px);max-width:12em}
+.dtitle em{font-style:italic;opacity:.5}
+@media (max-width:760px){.dets{grid-template-columns:1fr}.det{aspect-ratio:4/5}}
+
+/* DESENHOS TÉCNICOS / MOODBOARD */
+.tech{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,22px)}
+.tech figure{position:relative;background:#fff;overflow:hidden;cursor:zoom-in;aspect-ratio:1}
+.tech img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tech figure:hover img{transform:scale(1.04)}
+.tech figcaption{position:absolute;left:12px;bottom:10px;color:#111;font:400 10px var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:.6}
+.mood{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,90px);align-items:center}
+.mood figure{cursor:zoom-in;overflow:hidden}.mood img{width:100%;display:block}
+@media (max-width:760px){.tech,.mood{grid-template-columns:1fr}}
 
 /* PRÓXIMO */
 .next{position:relative;display:block;height:min(80svh,760px);overflow:hidden;padding:0;margin-top:clamp(40px,6vw,100px)}
@@ -139,20 +186,30 @@ section{padding:clamp(72px,11vw,170px) var(--pad)}
 <section>
   <div class="intro">
     <div><div class="lab">O projeto</div><p class="lead" id="lead"></p><p class="desc" id="desc"></p></div>
-    <div class="ficha" id="ficha"></div>
+    <div><div class="ficha" id="ficha"></div><div class="sublab">Materiais e elementos</div><div class="mats" id="mats"></div></div>
   </div>
+  <div class="blocks" id="blocks"></div>
+  <div class="pal" id="pal"></div>
 </section>
 
+<section id="vidS" hidden><div class="lab">Em movimento</div><div class="vids" id="vids"></div></section>
+
+<section id="detS" hidden><div class="lab">Detalhes</div><h2 class="dtitle" id="dtitle"></h2><div class="dets" id="dets"></div></section>
+
 <section id="baS" hidden>
-  <div class="lab">Antes e depois</div>
-  <div class="ba" id="ba"><img id="baB" alt="Antes"><img class="after" id="baA" alt="Depois"><em class="a">Antes</em><em class="d">Depois</em><div class="bar"></div></div>
+  <div class="lab" id="balab">Antes e depois</div>
+  <div class="ba" id="ba"><img id="baB" alt=""><img class="after" id="baA" alt=""><em class="a" id="baLa"></em><em class="d" id="baLb"></em><div class="bar"></div></div>
   <p class="bacap">Arraste para comparar</p>
 </section>
 
-<section style="padding-top:0">
-  <div class="lab">Imagens</div>
+<section id="moodS" hidden><div class="lab">Paleta de materiais</div><div class="mood"><figure id="moodF"></figure><div><p class="lead" id="moodT"></p></div></div></section>
+
+<section style="padding-top:0" id="galS">
+  <div class="lab">Todas as imagens</div>
   <div class="gal" id="gal"></div>
 </section>
+
+<section id="techS" hidden><div class="lab">Desenhos técnicos</div><div class="tech" id="tech"></div></section>
 
 <a class="next" id="next" href="#"><img id="nimg" alt=""><div class="t"><small>Próximo projeto</small><h2><span id="nt"></span><i>→</i></h2></div></a>
 <div class="all"><a href="index.html#projetos">Ver todos os projetos</a></div>
@@ -161,7 +218,7 @@ section{padding:clamp(72px,11vw,170px) var(--pad)}
   <div class="ftop">
     <div class="fbrand"><img src="logo/talissa-coelho-transparente-claro.svg" alt="Talissa Coelho"><p>Arquitetura que se vive.</p></div>
     <div><h5>Navegação</h5><ul><li><a href="index.html#projetos">Projetos</a></li><li><a href="index.html#sobre">Sobre</a></li><li><a href="index.html#processo">Processo</a></li><li><a href="index.html#contato">Contato</a></li></ul></div>
-    <div><h5>Contato</h5><ul><li><a href="#">WhatsApp</a></li><li><a href="#">Instagram</a></li><li><a href="#">E-mail</a></li></ul></div>
+    <div><h5>Contato</h5><ul><li><a href="#">WhatsApp</a></li><li><a href="https://instagram.com/talissacoelhoarq" target="_blank" rel="noopener">Instagram</a></li><li><a href="#">E-mail</a></li></ul></div>
     <div><h5>Legal</h5><ul><li><a href="privacidade.html">Política de Privacidade</a></li><li><a href="termos.html">Termos de Uso</a></li></ul></div>
   </div>
   <div class="fbot"><span>© 2026 Talissa Coelho. Todos os direitos reservados.</span><span>Feito por <a href="https://yrastudios.com.br" target="_blank" rel="noopener">YRA Studios</a></span></div>
@@ -175,32 +232,56 @@ section{padding:clamp(72px,11vw,170px) var(--pad)}
 <script>
 addEventListener('scroll',()=>document.querySelector('nav').classList.toggle('sc',scrollY>80),{passive:true});
 const ORDER=['residencia-clecia','escritorio-muxarabi','sala-ap','apto-aleatorio','fachada','banheiro-granilite'];
-// r = aspect ratio of each image (width / height); hero = image used as the cover
+// r = aspect ratio (w/h) of the main images; hero = cover image; vids = number of videos
 const P={
  'residencia-clecia':{t:'Apartamento Compacto',c:'Residencial',hero:4,r:[1.778,1.778,1.778,1.778,1.778,1.778,1,1,1,1,1,1],
   lead:'Cada centímetro pensado para <em>viver bem</em>.',
-  d:'Apartamento compacto com cozinha, jantar e estar integrados, marcenaria branca com detalhes em madeira, dormitórios com armários espelhados e um banheiro iluminado.'},
- 'escritorio-muxarabi':{t:'Escritório Muxarabi',c:'Comercial',hero:2,r:[.929,.929,.929,.929,.929,.929,.929,.8,.929],
+  d:'Apartamento compacto com cozinha, jantar e estar integrados, marcenaria branca com detalhes em madeira, dormitórios com armários espelhados e um banheiro iluminado.',
+  blocks:[['Conceito','Em um apartamento compacto, cada metro precisa trabalhar. A planta foi pensada para integrar cozinha, jantar e estar, ampliando a sensação de espaço e a luz natural.'],['Soluções','Marcenaria branca com toques de madeira, nichos com iluminação embutida e armários com portas espelhadas nos dormitórios multiplicam a profundidade e escondem o armazenamento.'],['Resultado','Ambientes claros, leves e organizados, onde a vida cotidiana flui sem excessos e cada canto tem função.']],
+  mats:['Marcenaria branca','Madeira','Portas espelhadas','Nichos iluminados','Cortinas leves','Painéis ripados'],
+  pal:[['#F1EEE9','Branco'],['#D6C7B4','Bege'],['#A87B52','Madeira'],['#BDB8B2','Cinza'],['#4A3B30','Café']]},
+ 'escritorio-muxarabi':{t:'Escritório Muxarabi',c:'Comercial',hero:2,r:[.929,.929,.929,.929,.929,.929,.929,.8,.929],vids:8,
   lead:'Madeira, mármore e a <em>luz do jardim</em>.',
-  d:'Escritório com marcenaria em muxarabi e nichos iluminados, uma mesa em mármore verde e grandes esquadrias que trazem o jardim para dentro do trabalho.'},
- 'sala-ap':{t:'Sala AP',c:'Interiores',hero:2,r:[1,1,1,1,1,1,1,.747,1,1,1,1],
+  d:'Escritório com marcenaria em muxarabi e nichos iluminados, uma mesa em mármore verde e grandes esquadrias que trazem o jardim para dentro do trabalho.',
+  blocks:[['Conceito','Um escritório voltado para o jardim, pensado para ser calmo, quente e receptivo. O muxarabi, trama vazada de madeira, é o fio condutor: dá textura à marcenaria, filtra a luz e cria identidade.'],['Materiais','A mesa oval em mármore verde é o ponto focal: sua curva suaviza o espaço e conversa com a vegetação vista pelo vidro. Fitas de LED desenham gestos de luz no nicho e a madeira clara mantém o ambiente acolhedor.'],['Resultado','Um espaço de trabalho que parece extensão do jardim: confortável para o dia a dia e marcante para quem chega.']],
+  mats:['Muxarabi em madeira','Mármore verde','Fita de LED','Vidro piso-teto','Estofado em tecido','Vegetação'],
+  pal:[['#A9794B','Madeira'],['#2F5D4A','Mármore verde'],['#E9E3D8','Off-white'],['#1A1714','Grafite'],['#E8B96B','Luz quente']],
+  sl:{a:'s01',b:'01',la:'Modelo',lb:'Render',t:'Do modelo ao render',ar:'1/1',bw:'700px'}},
+ 'sala-ap':{t:'Sala AP',c:'Interiores',hero:2,r:[1,1,1,1,1,1,1,.747,1,1,1,1,1],vids:7,
   lead:'Pé-direito duplo, pedra e <em>muita cor</em>.',
-  d:'Sala de pé-direito duplo em que a parede em pedra e a escada em balanço ganham protagonismo. O sofá verde, a mesa de centro e o tapete orgânico trazem cor e aconchego.'},
+  d:'Sala de pé-direito duplo em que a parede em pedra e a escada em balanço ganham protagonismo. O sofá verde, a mesa de centro e o tapete orgânico trazem cor e aconchego.',
+  blocks:[['Conceito','Um pé-direito duplo pede escala, mas também acolhimento. A pedra natural dá peso e textura, e os vãos generosos deixam o jardim entrar na sala.'],['Cor e matéria','Verde, vinho e tons terrosos em equilíbrio criam um ambiente cheio de personalidade. O tapete de desenho orgânico traz movimento e conecta os móveis.'],['Resultado','Uma sala que impressiona pela altura e abraça pela cor: pensada para receber, ler e ficar.']],
+  mats:['Pedra natural','Escada em balanço','Sofá curvo verde','Tapete orgânico','Pendentes lineares','Painel em mármore','Esquadria preta'],
+  pal:[['#3F5E45','Verde'],['#7A2433','Vinho'],['#CFC0A8','Pedra'],['#C8985E','Madeira'],['#E1B24A','Mostarda']],
+  sl:{a:'s01',b:'01',la:'Modelo',lb:'Render',t:'Do modelo ao render',ar:'1/1',bw:'700px'},
+  dt:'3 detalhes que fazem essa sala <em>sair do comum</em>',
+  det:[['11','Vegetação dentro de casa','Verde, vinho e tons terrosos em equilíbrio criando um ambiente cheio de personalidade.'],['07','Composição de cores','Natureza que traz vida, frescor e bem-estar para o dia a dia.'],['08','Escada suspensa','Leveza e design que valorizam o espaço.']]},
  'apto-aleatorio':{t:'Apartamento Integrado',c:'Residencial',hero:6,r:[1,1,1,1,1,1,.8],
   lead:'Ambientes que <em>conversam</em> entre si.',
-  d:'Cozinha, jantar e estar integrados em tons de madeira clara e verde, com bancada em granilite, iluminação suspensa e uma obra de arte que traz cor ao conjunto.'},
- 'fachada':{t:'Fachada Comercial',c:'Retrofit',hero:3,r:[.563,.671,1.25],ba:[1,2],
+  d:'Cozinha, jantar e estar integrados em tons de madeira clara e verde, com bancada em granilite, iluminação suspensa e uma obra de arte que traz cor ao conjunto.',
+  blocks:[['Conceito','Integrar para ampliar: cozinha, jantar e estar compartilham a mesma paleta e a mesma luz, formando um único cenário contínuo e acolhedor.'],['Materiais','Painéis amadeirados ripados, bancada em granilite, cadeiras com palha, pendentes pretos e uma arte colorida que funciona como ponto de cor sobre a base neutra.'],['Resultado','Um apartamento leve e sofisticado, que equilibra neutralidade e personalidade.']],
+  mats:['Painel ripado','Granilite','Cadeiras com palha','Pendentes pretos','Cerâmica verde','Arte colorida'],
+  pal:[['#CDA879','Madeira clara'],['#7F9C80','Verde sálvia'],['#E4DDD2','Granilite'],['#3A3A3C','Grafite'],['#D2483B','Vermelho da arte']],
+  mood:'Madeira, granilite, cerâmica verde, folhagem e metal: a base de materiais que guiou todas as escolhas do projeto.'},
+ 'fachada':{t:'Fachada Comercial',c:'Retrofit',hero:3,r:[.563,.671,1.25],ba:[1,2],tech:4,
   lead:'De galpão simples a uma <em>fachada com presença</em>.',
-  d:'Retrofit de fachada comercial: um volume escuro, tijolo aparente em tom claro e portões alinhados, com vasos e iluminação que dão identidade e presença à rua.'},
+  d:'Retrofit de fachada comercial: um volume escuro, tijolo aparente em tom claro e portões alinhados, com vasos e iluminação que dão identidade e presença à rua.',
+  blocks:[['Ponto de partida','Um galpão bege, sem identidade, com portas dispersas e pouca relação com a rua. O desafio era transformá-lo em uma fachada comercial reconhecível, mantendo a estrutura existente.'],['A intervenção','Um volume escuro na platibanda cria uma faixa horizontal forte; o tijolo aparente em tom claro marca o eixo central e os portões em tom escuro ganham alinhamento, com vasos e iluminação de fachada.'],['Resultado','Uma fachada com assinatura, contraste e leitura rápida para quem passa, preparada para receber o negócio com personalidade.']],
+  mats:['Volume escuro','Tijolo aparente claro','Portões de aço','Vasos com plantas','Iluminação de fachada'],
+  pal:[['#1C1C1E','Preto'],['#C9C6C0','Tijolo claro'],['#8E8F91','Concreto'],['#4C5E4F','Verde'],['#AFC4DA','Céu']],
+  tl:['Prancha 01','Prancha 02','Prancha 03','Prancha 04']},
  'banheiro-granilite':{t:'Banheiro Granilite',c:'Interiores',hero:1,r:[.8],
   lead:'Textura, calor e <em>luz de nicho</em>.',
-  d:'Banheiro com box em granilite, revestimento em peças retangulares de tons terrosos e um nicho iluminado que cria uma atmosfera acolhedora.'}
+  d:'Banheiro com box em granilite, revestimento em peças retangulares de tons terrosos e um nicho iluminado que cria uma atmosfera acolhedora.',
+  blocks:[['Conceito','Transformar um banheiro em um ambiente cheio de personalidade, com textura e cor, sem perder a funcionalidade.'],['Materiais','O granilite no box traz textura e durabilidade; o revestimento retangular em tons terrosos dá ritmo à parede, e o nicho com luz quente cria profundidade.'],['Resultado','Um banheiro acolhedor e marcante, em que cada superfície conta uma parte da história.']],
+  mats:['Granilite','Revestimento retangular','Nicho iluminado','Box de vidro','Cuba de apoio','Marcenaria vinho'],
+  pal:[['#B4552F','Terracota'],['#EFE0C8','Creme'],['#25303F','Azul-noite'],['#CDBFAE','Granilite'],['#7A4A2E','Madeira']]}
 };
 const slug=new URLSearchParams(location.search).get('p');
 const pr=P[slug];
 if(!pr){location.replace('index.html#projetos')}
 else{
-const idx=ORDER.indexOf(slug),n=pr.r.length,src=(s,k)=>`projetos/${s}/${String(k).padStart(2,'0')}.jpg`;
+const idx=ORDER.indexOf(slug),n=pr.r.length,F=(s,f)=>`projetos/${s}/${f}`,src=(s,k)=>F(s,String(k).padStart(2,'0')+'.jpg');
 document.title=pr.t+' — Talissa Coelho';
 const $=id=>document.getElementById(id);
 $('himg').src=src(slug,pr.hero);$('himg').alt=pr.t;
@@ -208,21 +289,39 @@ if(pr.r[pr.hero-1]<.85)$('hero').classList.add('split');
 $('ht').innerHTML='<span>'+pr.t+'</span>';
 $('hn').textContent=String(idx+1).padStart(2,'0')+' / '+String(ORDER.length).padStart(2,'0');$('hc').textContent=pr.c;
 $('lead').innerHTML=pr.lead;$('desc').textContent=pr.d;
-$('ficha').innerHTML=`<div><b>Projeto</b><span>${pr.t}</span></div><div><b>Categoria</b><span>${pr.c}</span></div><div><b>Imagens</b><span>${n}</span></div>`;
+const nImgs=n+(pr.sl?1:0)+(pr.mood?1:0)+(pr.tech||0);
+$('ficha').innerHTML=`<div><b>Projeto</b><span>${pr.t}</span></div><div><b>Categoria</b><span>${pr.c}</span></div><div><b>Imagens</b><span>${nImgs}</span></div>${pr.vids?`<div><b>Vídeos</b><span>${pr.vids}</span></div>`:''}`;
+$('mats').innerHTML=pr.mats.map(m=>`<span>${m}</span>`).join('');
+$('blocks').innerHTML=pr.blocks.map((b,i)=>`<div><b>0${i+1}</b><h3>${b[0]}</h3><p>${b[1]}</p></div>`).join('');
+$('pal').innerHTML=pr.pal.map(p=>`<i style="background:${p[0]}"><span>${p[1]}</span></i>`).join('');
 
-// before / after
+// every image of the project, in lightbox order
+const ALL=[];const add=(file,cap)=>(ALL.push({s:F(slug,file),cap}),ALL.length-1);
+
+// videos
+if(pr.vids){$('vidS').hidden=false;let h='';for(let k=1;k<=pr.vids;k++)h+=`<video src="${F(slug,'v'+String(k).padStart(2,'0')+'.mp4')}" muted loop playsinline preload="none"></video>`;$('vids').innerHTML=h;
+  const vio=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting?x.target.play().catch(()=>{}):x.target.pause()),{threshold:.35});document.querySelectorAll('#vids video').forEach(v=>vio.observe(v))}
+
+// details (3 panels)
+if(pr.det){$('detS').hidden=false;$('dtitle').innerHTML=pr.dt;$('dets').innerHTML=pr.det.map((d,i)=>`<div class="det"><img src="${src(slug,d[0])}" alt="${d[1]}" loading="lazy"><div><b>0${i+1}</b><h4>${d[1]}</h4><p>${d[2]}</p></div></div>`).join('')}
+
+// before/after or model/render slider
+const sl=pr.ba?{a:src(slug,pr.ba[0]),b:src(slug,pr.ba[1]),la:'Antes',lb:'Depois',t:'Antes e depois',ar:'4/5',bw:'620px'}:pr.sl?{a:F(slug,pr.sl.a+'.jpg'),b:src(slug,pr.sl.b),la:pr.sl.la,lb:pr.sl.lb,t:pr.sl.t,ar:pr.sl.ar,bw:pr.sl.bw}:null;
 const skip=new Set(pr.ba||[]);
-if(pr.ba){
-  $('baS').hidden=false;$('baB').src=src(slug,pr.ba[0]);$('baA').src=src(slug,pr.ba[1]);
-  const ba=$('ba');let drag=false;
+if(sl){
+  $('baS').hidden=false;$('balab').textContent=sl.t;$('baB').src=sl.a;$('baA').src=sl.b;$('baLa').textContent=sl.la;$('baLb').textContent=sl.lb;
+  const ba=$('ba');ba.style.setProperty('--ba',sl.ar);ba.style.setProperty('--bw',sl.bw);let drag=false;
   const mv=e=>{const r=ba.getBoundingClientRect();ba.style.setProperty('--x',Math.min(100,Math.max(0,(e.clientX-r.left)/r.width*100))+'%')};
   ba.addEventListener('pointerdown',e=>{drag=true;ba.setPointerCapture(e.pointerId);mv(e)});
   ba.addEventListener('pointermove',e=>drag&&mv(e));ba.addEventListener('pointerup',()=>drag=false);
 }
 
+// moodboard
+if(pr.mood){$('moodS').hidden=false;const k=add('m01.jpg','Paleta de materiais');$('moodF').innerHTML=`<img src="${F(slug,'m01.jpg')}" alt="Paleta de materiais" loading="lazy">`;$('moodF').dataset.k=k;$('moodF').classList.add('lbx');$('moodT').textContent=pr.mood}
+
 // editorial gallery: landscapes full width, others in offset pairs
 const items=[];for(let k=1;k<=n;k++)if(!skip.has(k))items.push(k);
-const fig=k=>`<figure class="f" data-k="${k}" style="aspect-ratio:${pr.r[k-1]}"><img src="${src(slug,k)}" alt="${pr.t} — imagem ${k}" loading="lazy"><i>Ampliar</i></figure>`;
+const fig=k=>{const i=add(String(k).padStart(2,'0')+'.jpg',pr.t+' — imagem '+k);return `<figure class="f lbx" data-k="${i}" style="aspect-ratio:${pr.r[k-1]}"><img src="${src(slug,k)}" alt="${pr.t} — imagem ${k}" loading="lazy"><i>Ampliar</i></figure>`};
 let html='',side=0;
 for(let a=0;a<items.length;){
   const k=items[a];
@@ -231,6 +330,9 @@ for(let a=0;a<items.length;){
   else{html+=`<div class="row single${side++%2?' r':''}">${fig(k)}</div>`;a++}
 }
 $('gal').innerHTML=html;
+
+// technical drawings
+if(pr.tech){$('techS').hidden=false;let h='';for(let k=1;k<=pr.tech;k++){const i=add('t0'+k+'.jpg',pr.tl[k-1]);h+=`<figure class="lbx" data-k="${i}"><img src="${F(slug,'t0'+k+'.jpg')}" alt="${pr.tl[k-1]}" loading="lazy"><figcaption>${pr.tl[k-1]}</figcaption></figure>`}$('tech').innerHTML=h}
 
 // next project
 const nx=ORDER[(idx+1)%ORDER.length],np=P[nx];
@@ -252,13 +354,17 @@ addEventListener('pointermove',e=>{mx=e.clientX/innerWidth*2-1;my=e.clientY/inne
   figs.forEach(f=>{const r=f.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;const d=(r.top+r.height/2-vh/2)/vh;f.firstElementChild.style.transform=`translateY(${-6+d*-7}%)`});
   requestAnimationFrame(loop);
 })();
+// 3D tilt on detail panels
+document.querySelectorAll('.det').forEach(el=>{
+  el.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`});
+  el.addEventListener('pointerleave',()=>el.style.transform='');
+});
 
 // lightbox (all images of the project)
-const lb=$('lb'),li=lb.querySelector('img'),lh=lb.querySelector('h3'),ls=lb.querySelector('small');let cur=1;
-const show=k=>{cur=(k-1+n)%n+1;li.style.opacity=0;const im=new Image();im.onload=()=>{li.src=im.src;li.style.opacity=1};im.src=src(slug,cur);ls.textContent=cur+' / '+n};
+const lb=$('lb'),li=lb.querySelector('img'),lh=lb.querySelector('h3'),ls=lb.querySelector('small'),N=ALL.length;let cur=0;
+const show=k=>{cur=(k+N)%N;li.style.opacity=0;const im=new Image();im.onload=()=>{li.src=im.src;li.style.opacity=1};im.src=ALL[cur].s;lh.textContent=ALL[cur].cap;ls.textContent=(cur+1)+' / '+N};
 const close=()=>{lb.classList.remove('open');document.documentElement.classList.remove('lock')};
-lh.textContent=pr.t;
-document.querySelectorAll('.f').forEach(f=>f.addEventListener('click',()=>{lb.classList.add('open');document.documentElement.classList.add('lock');show(+f.dataset.k)}));
+document.querySelectorAll('.lbx').forEach(f=>f.addEventListener('click',()=>{lb.classList.add('open');document.documentElement.classList.add('lock');show(+f.dataset.k)}));
 lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=()=>show(cur-1);lb.querySelector('.nx').onclick=()=>show(cur+1);
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('st'))close()});
 addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
